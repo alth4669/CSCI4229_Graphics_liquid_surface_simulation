@@ -1,0 +1,43 @@
+Alex Thompson
+CSCI4229 Graphics
+Professor Willem Schreuder
+
+README for Final Project - Water Surface Simulation
+
+Description:
+
+This project renders a surface meant to mirror the surface of a body of water. Simulations are based on equations for Gerstner Waves which are used to calculate the water's height and normal vectors over time. Furthermore, the surface of water is surrounded by a sky cube texture and in addition to following proper lighting behaviour from Phong lighting, the surface also samples colors from the cube map environment to create a dynamic reflection of the surrounding environment on the surface. 
+
+Texture sampling and calculations are performed using a GLSL vertex and fragment shader.
+
+The program allows for an overhead perspective view as well as first person navigation. You can change between a daytime and nighttime mode that changes the surrounding sky cube along with the reflections on the liquid's surface.
+
+Controls:
+
+"0" Key				- reset the rotation angles of the projection and move the first person view back to the scenes origin when in first peron mode
+Arrow Keys 			- while in first person mode, arrow keys make the user look up,down,left, and right. Otherwise they adjust the projection angles
+Esc Key	   			- exit the program
+1,2 keys			- choose between orthogonal perspective and first person perspective modes respectively
+"-" and "+" Keys	- increase and decrease respectively the field of view angle for perspective modes
+"w" and "s" Keys	- increase and decrease respectively the eye position for first person perspective navigation
+"m" Key				- toggle between viewing the water as a series of quads or as a mesh
+"d" Key				- toggle between viewing the scene at day vs night
+
+Project Highlights:
+-creating a new version of loadtexBMP specifically for creating cube map textures rather than just 2d textures
+-use of shader to sample from cube map texture to get reflection color
+-use of shader to apply cube map reflection to water surface
+
+Acknowledgements/Other Info:
+
+Several functions were copied or adapted from the HelloWorld examples 1 through 5 from class including the reshape, special, print, and key functions as well as some functionality from examples 8 and 9.. Code that was reused or adapted is commented accordingly in the code.
+
+For more information regarding the Gerstner wave equations used in this simulation, please go to https://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch01.html. Analytic derivations and computations are laid out in detail.
+
+Compiling and running:
+
+Use the Makefile provided to compile the program into an executable called ./project. Simply type:
+
+make project
+
+in your terminal.
